@@ -1,0 +1,33 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+const liClassBase = "px-2 p-1 rounded";
+const liClass = `${liClassBase} bg-blue-600`;
+const active = `${liClassBase} bg-blue-800`;
+---
+
+<div class="w-full bg-blue-500 pt-2 pb-2 flex md:justify-center text-white">
+  <div
+    class="sm:w-full md:w-1/2 flex flex-col md:flex-row justify-between pl-5"
+  >
+    <div class="flex">
+      <h1 class="text-2xl">{title}</h1>
+    </div>
+    <ul class="flex space-x-5 pt-1 text-sm">
+      <li class={currentPath === "" ? active : liClass}>
+        <a href="/">Home</a>
+      </li>
+      <li class={currentPath === "blog" ? active : liClass}>
+        <a href="/blog">Blog</a>
+      </li>
+      <li class={currentPath === "cv" ? active : liClass}>
+        <a href="/cv">CV</a>
+      </li>
+    </ul>
+  </div>
+</div>
