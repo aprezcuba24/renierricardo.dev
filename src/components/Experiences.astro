@@ -1,0 +1,142 @@
+---
+import Seccion from "./Seccion.astro";
+const experiencies = [
+  {
+    title: "Tactical Map (EEUU)",
+    subTitle: "TACTICAL MAP",
+    date: "2022-2023",
+    items: [
+      "Social platform",
+      "Role: Programmer Frontend and Backend",
+      "Technologies: Angular and Django",
+    ],
+  },
+  {
+    title: "Dopple (EEUU)",
+    subTitle: "HTTPS://WWW.THEDOPPLE.COM/",
+    date: "2020",
+    items: [
+      "Shopping platform",
+      "Role: Programmer Frontend and Backend",
+      "Technologies: ReactJs and Django",
+    ],
+  },
+  {
+    title: "Celsius crypto (EEUU)",
+    subTitle: "HTTPS://CELSIUS.NETWORK/ ",
+    date: "2020",
+    items: [
+      "Crypto platform",
+      "Role: Programmer Frontend",
+      "echnologies: ReactJs",
+    ],
+  },
+  {
+    title: "Footsolutions (EEUU)",
+    subTitle: "HTTPS://FOOTSOLUTIONS.COM/",
+    date: "2020",
+    items: [
+      "Site to sell shoes",
+      "Role: Programmer Frontend",
+      "Technologies: ReactJs",
+    ],
+  },
+  {
+    title: "GetJoot (EEUU)",
+    subTitle: "HTTPS://WWW.GETJOOT.COM/",
+    date: "2020",
+    items: [
+      "Site to analyze metrics in social networks",
+      "Role: Programmer Frontend",
+      "Technologies: ReactJs",
+    ],
+  },
+  {
+    title: "System to control Palmares prices (Cuba)",
+    subTitle: "PROGRAMMER FULL STACK",
+    date: "2019",
+    items: ["Technology: Python, Django"],
+  },
+  {
+    title: "DailyBot (EEUU)",
+    subTitle: "HTTPS://WWW.DAILYBOT.CO/",
+    date: "2017",
+    items: [
+      "Bot for chat platforms, Slack y Hangouts. To configure and answer questioners by working teams in a specific day.",
+      "Role: Programmer Full Stack",
+      "Technologies: Python, Django, PostgreSQL, Vuejs, NodeJs, AWS Lambdas, DynamoDB",
+    ],
+  },
+  {
+    title: "BeyoundCampus (Spain)",
+    subTitle: "PROGRAMMER FULL STACK",
+    date: "2018",
+    items: [
+      "Plataforma de economía colaborativa para la reservación de pisos para estudiantes universitarios",
+      "Technology: Python, Django, Postgresql, Vuejs",
+    ],
+  },
+  {
+    title: "AZCuba (Cuba)",
+    subTitle: "PROGRAMMER OF MOBILE APPLICATION",
+    date: "2018",
+    items: ["Technology: .Net, Asp Net, SqlServer, Vue Native"],
+  },
+  {
+    title: "Verificode (EEUU)",
+    subTitle: "FRONTEND PROGRAMMER, HTTPS://VERIFICODE.COM/",
+    date: "2017",
+    items: ["Technology: Vuejs, Postgresql, Go"],
+  },
+  {
+    title: "App Bambu (Spain)",
+    subTitle: "BACKEND PROGRAMMER, HTTPS://APPBAMBU.COM/",
+    date: "2017",
+    items: ["Technology: Python, Flutter, Postgresql"],
+  },
+  {
+    title: "Chiara (Spain)",
+    subTitle: "PROGRAMMER FULL STACK",
+    date: "2017",
+    items: ["Python, Django, Postgresql, VueJs"],
+  },
+  {
+    title: "Clickexpertise (Spain)",
+    subTitle: "PROGRAMMER FULL STACK",
+    date: "2016",
+    items: ["Technology: PHP, Symfony, MySql, Angular"],
+  },
+  {
+    title: "Discrepante (Colombia)",
+    subTitle: "PROGRAMMER AND ARCHITECT. HTTP://WWW.DISCREPANTE.COM",
+    date: "2016",
+    items: ["Technology: PHP, Symfony, MySql"],
+  },
+  {
+    title: "Gluky Group (Colombia)",
+    subTitle: "SOFTWARE ARCHITECT, HTTPS://WWW.PAGOMIO.COM/ES/",
+    date: "2010 - 2014",
+    items: ["Technology: PHP, Symfony, MySql"],
+  },
+  {
+    title: "GUALA (Spain)",
+    subTitle: "PROGRAMMER FULL STACK ",
+    date: "2014",
+    items: ["Technology: PHP, Openbiz, MySql"],
+  },
+  {
+    title: "Childhood buys Client in Spain",
+    subTitle: "PROGRAMMER FULL STACK ",
+    date: "2009",
+    items: ["Technology: PHP, Symfony, MySql"],
+  },
+  {
+    title: "University of informatics Sciences (Cuba)",
+    subTitle: "PROGRAMMER FULL STACK ",
+    date: "2009",
+    items: ["National red of Nephrology"],
+  },
+];
+---
+
+{experiencies.map((experiencie) => <Seccion {...experiencie} />)}
