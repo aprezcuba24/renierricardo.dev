@@ -1,0 +1,9 @@
+---
+interface Props {
+  label: string;
+  class?: string;
+}
+const { label, class: classProps } = Astro.props;
+---
+
+<strong style="display: block;" class={classProps}>{label}</strong>
