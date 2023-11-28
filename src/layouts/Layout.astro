@@ -27,9 +27,9 @@ const { title } = Astro.props;
 	<body>
 		<Header title={title} />
 		<div class="flex w-full justify-center">
-			<div class="flex sm:w-1/2">
-				<div class="sm:w-4/5 w-full">
-					<div class="sm:hidden w-full">
+			<div class="flex sm:w-1/2 pt-10">
+				<div class="sm:w-4/5 w-full px-5">
+					<div class="sm:hidden w-full mb-5">
 						<AuthorCard />
 					</div>
 					<slot />
