@@ -1,0 +1,120 @@
+---
+import Label from "./Label.astro";
+
+const skills = [
+  [
+    "Programming Languages",
+    [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "TypeScript",
+      "ReactJS",
+      "React-native",
+      "NodeJS",
+      "PHP",
+      "Python",
+      "XML",
+      "JSON",
+    ],
+  ],
+  [
+    "Frameworks",
+    [
+      "Angular",
+      "RxJS",
+      "SASS",
+      "Bootstrap",
+      "Meteor",
+      "Apollo",
+      "jQuery",
+      "Django",
+      "Symfony",
+      "Symfony 2",
+      "ReactJS",
+      "NodeJS",
+      "React-Native",
+      "GraphQL",
+      "Electron",
+      "Laravel",
+      "CodeIgniter",
+      "NestJs",
+      "Express",
+      "django",
+      "VueJs",
+      "RxJs",
+      "Serverles Framework",
+    ],
+  ],
+  [
+    "Databases",
+    ["PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "SQLite", "DynamoDb AWS"],
+  ],
+  [
+    "Package Manager",
+    ["Bower", "Npm", "NodeJs", "Meteor", "Yarn", "Composer", "Pip", "Poetry"],
+  ],
+  ["Task/Build Runner", ["Gulp Js, Yarn"]],
+  ["Languages", ["Spanish, English (1 level)"]],
+  [
+    "Technologies",
+    [
+      "GraphQL",
+      "Docker",
+      "Jenkis",
+      "Pipelines de GitLab",
+      "Bitbucket",
+      "Github",
+      "Gitlab",
+    ],
+  ],
+  ["Methodologies of development", ["RUP", "XP", "SCRUM", "Kanban"]],
+  ["Integration with payment getaway", ["Pypal", "Stripe y Paddle"]],
+  ["Integration with chat platforms", ["Slack", "Hangouts", "Telegram (Bots)"]],
+  ["Technologies of automatic tests", ["PhpUnit", "Jest", "Pytest"]],
+  [
+    "Injection of dependence",
+    [
+      "Library of symphony",
+      "Library  of Laravel",
+      "For python https://github.com/ets-labs/python-dependency-injector",
+      "For JavaScript http://inversify.io/",
+    ],
+  ],
+  [
+    "Use of ORM for data management",
+    [
+      "Python: orm of django",
+      "PHP: DoctrineOrm",
+      "EloquentOrm",
+      "JavaScript: TypeOrm https://github.com/typeorm/typeorm",
+    ],
+  ],
+  [
+    "Cloud Computing (AWS)",
+    [
+      "Lambda",
+      "Event Bridge",
+      "Step Function",
+      "DynamoDb",
+      "Cloud watch",
+      "SQS",
+      "Api Gateway",
+      "Cognito",
+      "Deploy technology: Serverless Framework",
+    ],
+  ],
+  ["PAAS", ["Heroku", "Vercel", "Netlify"]],
+];
+---
+
+<div class="text-sm">
+  {
+    skills.map((skill) => (
+      <div class="mb-3">
+        <Label class="whitespace-nowrap" label={skill[0] as string} />
+        <p>{(skill[1] as string[]).join(", ")}</p>
+      </div>
+    ))
+  }
+</div>

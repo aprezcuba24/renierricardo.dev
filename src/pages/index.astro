@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import General from "../components/General.astro";
 import SeccionTitle from "../components/SeccionTitle.astro";
 import Seccion from "../components/Seccion.astro";
+import Skills from "../components/Skills.astro";
 ---
 
 <Layout title="Ms. Renier Ricardo Figueredo">
@@ -20,4 +21,11 @@ import Seccion from "../components/Seccion.astro";
     place="Holguín, Cuba"
     date="Sept. 2001 - Jul. 2006"
   />
+  <SeccionTitle title="Social Links" class="mt-10" />
+  <Seccion
+    title="Linkedin"
+    subTitle="https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/"
+  />
+  <SeccionTitle title="Skills" class="mt-10" />
+  <Skills />
 </Layout>
