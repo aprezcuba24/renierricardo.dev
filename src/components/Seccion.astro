@@ -7,11 +7,14 @@ interface Props {
   place?: string;
   date?: string;
   items?: string[];
+  class?: string;
 }
-const { title, subTitle, place, date, items } = Astro.props;
+const { title, subTitle, place, date, items, class: classProps } = Astro.props;
+const baseClass = "text-sm flex justify-between mb-4";
+const className = classProps ? `${baseClass} ${classProps}` : baseClass;
 ---
 
-<div class="text-sm flex justify-between mb-4">
+<div class={className}>
   <div>
     <Label class="mb-1" label={title} />
     <p class="uppercase">{subTitle}</p>

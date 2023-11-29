@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { formatDate } from "../utils";
+import { Image } from "astro:assets";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title="Blog">
+  <main class="mb-10">
+    <h1 class="text-2xl">
+      {frontmatter.title}
+    </h1>
+    <div class="flex justify-end pb-10 text-red-500">
+      {formatDate(frontmatter.pubDate)}
+    </div>
+    <Image
+      src={frontmatter.image}
+      width={5000}
+      height={500}
+      densities={[1.5, 2]}
+      alt={frontmatter.title}
+    />
+    <article
+      class="my-5 prose dark:prose-invert lg:prose-lg prose-img:mx-auto max-w-none break-words"
+    >
+      <slot />
+    </article>
+  </main>
+</Layout>
