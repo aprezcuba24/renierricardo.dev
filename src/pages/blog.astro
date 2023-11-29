@@ -1,13 +1,11 @@
 ---
 import SeccionTitle from "../components/SeccionTitle.astro";
 import Layout from "../layouts/Layout.astro";
-import { formatDate } from "../utils";
+import { formatDate, sortByDate } from "../utils";
 import { Image } from "astro:assets";
 
 const allPosts = (await Astro.glob("../pages/posts/*.md"))
-  .sort((a, b) =>
-    b.frontmatter.pubDate.valueOf() > a.frontmatter.pubDate.valueOf() ? 1 : -1
-  )
+  .sort((a, b) => sortByDate(a.frontmatter.pubDate, b.frontmatter.pubDate))
   .map(({ frontmatter: { title, pubDate, description, image }, url }) => ({
     title,
     url,
