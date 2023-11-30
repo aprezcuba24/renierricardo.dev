@@ -6,7 +6,11 @@ import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title="Blog">
+<Layout
+  title="Blog"
+  description={frontmatter.description}
+  image={frontmatter.image}
+>
   <main class="mb-10">
     <h1 class="text-2xl">
       {frontmatter.title}

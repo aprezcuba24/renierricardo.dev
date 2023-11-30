@@ -7,7 +7,10 @@ import { Image } from "astro:assets";
 const allPosts = transformPosts(await Astro.glob("../pages/posts/*.md"));
 ---
 
-<Layout title="Blog">
+<Layout
+  title="Blog"
+  description="Artículos del desarrollador Renier Ricardo Figueredo"
+>
   <main>
     <SeccionTitle title="Artículos" />
     {

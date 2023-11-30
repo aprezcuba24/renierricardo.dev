@@ -9,7 +9,7 @@ const lastPosts = transformPosts(await Astro.glob("../pages/posts/*.md")).slice(
 );
 ---
 
-<SeccionTitle title="Últimos articulos" firstPartLength={4} class="mt-10" />
+<SeccionTitle title="Últimos artículos" firstPartLength={4} class="mt-10" />
 {
   lastPosts.map(({ title, url, image, description, pubDate }: any) => (
     <a href={url}>
