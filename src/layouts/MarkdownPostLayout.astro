@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
       densities={[1.5, 2]}
       alt={frontmatter.title}
     />
-    <article class="my-5 prose">
+    <article class="my-5 prose break-words max-w-xs sm:max-w-full">
       <slot />
     </article>
   </main>
