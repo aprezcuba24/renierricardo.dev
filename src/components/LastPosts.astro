@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import { transformPosts } from "../utils";
+import SeccionTitle from "./SeccionTitle.astro";
+
+const lastPosts = transformPosts(await Astro.glob("../pages/posts/*.md")).slice(
+  0,
+  3
+);
+---
+
+<SeccionTitle title="Últimos articulos" firstPartLength={4} class="mt-10" />
+{
+  lastPosts.map(({ title, url, image, description, pubDate }: any) => (
+    <a href={url}>
+      <div class="text-sm w-full sm:flex mb-3">
+        <div class="sm:w-1/5 sm:mr-2">
+          <Image
+            src={image}
+            width={500}
+            height={100}
+            densities={[1.5, 2]}
+            alt={title}
+            class="mb-3"
+          />
+        </div>
+        <div class="sm:w-4/5 flex flex-col">
+          <strong>{title}</strong>
+          <span class="text-red-500">{pubDate}</span>
+          <p>{description}</p>
+        </div>
+      </div>
+    </a>
+  ))
+}

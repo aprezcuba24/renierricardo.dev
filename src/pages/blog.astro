@@ -1,25 +1,17 @@
 ---
 import SeccionTitle from "../components/SeccionTitle.astro";
 import Layout from "../layouts/Layout.astro";
-import { formatDate, sortByDate } from "../utils";
+import { transformPosts } from "../utils";
 import { Image } from "astro:assets";
 
-const allPosts = (await Astro.glob("../pages/posts/*.md"))
-  .sort((a, b) => sortByDate(a.frontmatter.pubDate, b.frontmatter.pubDate))
-  .map(({ frontmatter: { title, pubDate, description, image }, url }) => ({
-    title,
-    url,
-    description,
-    image,
-    pubDate: formatDate(pubDate),
-  }));
+const allPosts = transformPosts(await Astro.glob("../pages/posts/*.md"));
 ---
 
 <Layout title="Blog">
   <main>
     <SeccionTitle title="Artículos" />
     {
-      allPosts.map((post) => (
+      allPosts.map((post: any) => (
         <a class="text-sm px-1 pt-1 mb-1" href={post.url}>
           <div class="flex flex-col border-solid border-b-2 pb-5 border-gray-500">
             <Image

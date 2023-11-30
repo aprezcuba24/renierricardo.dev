@@ -2,13 +2,13 @@
 interface Props {
   title: string;
   class?: string;
+  firstPartLength?: number;
 }
 
-const { title, class: classProps } = Astro.props;
+const { title, class: classProps, firstPartLength = 3 } = Astro.props;
 const parts = title.split("");
-const length = 3;
-const fristPart = parts.slice(0, length).join("");
-const secondPart = parts.slice(length).join("");
+const fristPart = parts.slice(0, firstPartLength).join("");
+const secondPart = parts.slice(firstPartLength).join("");
 const baseClass = "w-full flex mb-2";
 const className = classProps ? `${classProps} ${baseClass}` : baseClass;
 ---
