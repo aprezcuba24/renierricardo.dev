@@ -1,0 +1,29 @@
+---
+import Seccion from "./Seccion.astro";
+
+const socialLinks = [
+  [
+    "Linkedin",
+    "https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/"
+  ],
+  [
+    "Github",
+    "https://github.com/aprezcuba24"
+  ],
+  [
+    "Site",
+    "https://renierricardo.dev"
+  ]
+];
+---
+
+<>
+  {
+    socialLinks.map((socialLink) => (
+      <Seccion
+        title={socialLink[0]}
+        subTitle={socialLink[1]}
+      />
+    ))
+  }
+</>

@@ -7,31 +7,35 @@ import Skills from "../components/Skills.astro";
 import Positions from "../components/Positions.astro";
 import Experiences from "../components/Experiences.astro";
 import LastPosts from "../components/LastPosts.astro";
+import Repositories from "../components/repositories.astro";
+import SocialLinks from "../components/social-links.astro";
+import Functions from "../components/Functions.astro";
 ---
 
 <Layout description="Sitio personal del desarrollador Renier Ricardo Figueredo">
   <General />
   <LastPosts />
+  <SeccionTitle title="Funciones y Habilidades" class="mt-10" />
+  <Functions />
   <SeccionTitle title="Educación" class="mt-10" />
   <Seccion
-    title="Universidad de las Ciencas Informáticas"
+    title="Universidad de las Ciencias Informáticas"
     subTitle="Master en informática aplicada"
     place="Habana, Cuba"
     date="2009"
   />
   <Seccion
-    title="“Oscar Lucero Moya” Universidad de Holguín (UHO)"
+    title="Universidad “Oscar Lucero Moya” de Holguín (UHO)"
     subTitle="Ingeniero Informático"
     place="Holguín, Cuba"
     date="Sept. 2001 - Jul. 2006"
   />
   <SeccionTitle title="Social Links" class="mt-10" />
-  <Seccion
-    title="Linkedin"
-    subTitle="https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/"
-  />
+  <SocialLinks />
   <SeccionTitle title="Skills" class="mt-10" />
   <Skills />
+  <SeccionTitle title="Repositorios" class="mt-10" />
+  <Repositories />
   <SeccionTitle title="Posiciones" class="mt-10" />
   <Positions />
   <SeccionTitle title="Experiencia" class="mt-10" />

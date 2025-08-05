@@ -1,0 +1,35 @@
+---
+const repositories = [
+  [
+    "MCP para VSCode, creado para generar módulos de Nestjs con los estándares específicos que se utilizan en la empresa Dofleini. Se utilizó openia.",
+    "https://github.com/aprezcuba24/dfl-nest-ia-generator"
+  ],
+  [
+    "Bot de telegram desarrollado en python y que utiliza tecnologías de AWS, como lambda, cloudwatch, sqs, api gateway y dynamodb. Está desollado con serverless framework.",
+    "https://github.com/aprezcuba24/coffe_time_bot"
+  ],
+  [
+    "Sitio web personal desarrollado con astro.",
+    "https://github.com/aprezcuba24/renierricardo.dev"
+  ],
+  [
+    "Sistema de despligue automático de aplicaciones. Se desarrollo a modo experimental y tiene como objetivo emular sistemas como Vercel.",
+    "https://github.com/aprezcuba24/cupaas"
+  ]
+];
+---
+
+<div class="text-sm">
+  {
+    repositories.map((repository) => (
+      <div class="mb-3">
+        <ul>
+          <li>
+            <p>{repository[0]}</p>
+            <p>👉 <a href={repository[1]}>{repository[1]}</a></p>
+          </li>
+        </ul>
+      </div>
+    ))
+  }
+</div>
