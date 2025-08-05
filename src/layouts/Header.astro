@@ -14,13 +14,13 @@ const name = "Msc. Renier Ricardo Figueredo";
 
 <div class="w-full bg-blue-500 pt-2 pb-2 flex md:justify-center text-white">
   <div
-    class="sm:w-full md:w-1/2 flex flex-col md:flex-row justify-between pl-5 sm:pl-0"
+    class="w-full md:w-1/2 flex flex-col md:flex-row justify-between pl-5 pr-5 sm:pl-0"
   >
     <div class="flex text-1xl sm:text-2xl">
       {title && <strong class="mr-3">{title}</strong>}
       <h1>{name}</h1>
     </div>
-    <ul class="flex space-x-5 pt-1 text-sm">
+    <ul class="flex justify-end space-x-5 pt-1 text-sm">
       <li class={currentPath === "" ? active : liClass}>
         <a href="/">Home</a>
       </li>
