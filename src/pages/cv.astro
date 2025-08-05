@@ -1,0 +1,42 @@
+---
+import General from "../components/General.astro";
+import SeccionTitle from "../components/SeccionTitle.astro";
+import Seccion from "../components/Seccion.astro";
+import Skills from "../components/Skills.astro";
+import Positions from "../components/Positions.astro";
+import Experiences from "../components/Experiences.astro";
+import LastPosts from "../components/LastPosts.astro";
+import Repositories from "../components/repositories.astro";
+import SocialLinks from "../components/social-links.astro";
+import Functions from "../components/Functions.astro";
+import LayoutCv from "../layouts/LayoutCv.astro";
+---
+
+<LayoutCv description="Curriculum vitae del desarrollador Renier Ricardo Figueredo">
+  <General />
+  <SeccionTitle title="Funciones y Habilidades" class="mt-10" />
+  <Functions />
+  <SeccionTitle title="Educación" class="mt-10" />
+  <Seccion
+    title="Universidad de las Ciencias Informáticas"
+    subTitle="Master en informática aplicada"
+    place="Habana, Cuba"
+    date="2009"
+  />
+  <Seccion
+    title="Universidad “Oscar Lucero Moya” de Holguín (UHO)"
+    subTitle="Ingeniero Informático"
+    place="Holguín, Cuba"
+    date="Sept. 2001 - Jul. 2006"
+  />
+  <SeccionTitle title="Social Links" class="mt-10" />
+  <SocialLinks />
+  <SeccionTitle title="Skills" class="mt-10" />
+  <Skills />
+  <SeccionTitle title="Repositorios" class="mt-10" />
+  <Repositories />
+  <SeccionTitle title="Posiciones" class="mt-10" />
+  <Positions />
+  <SeccionTitle title="Experiencia" class="mt-10" />
+  <Experiences />
+</LayoutCv>
