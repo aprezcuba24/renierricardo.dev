@@ -1,0 +1,21 @@
+---
+import Seccion from "./Seccion.astro";
+
+const socialLinks = [
+  [
+    "Claude Code in Action",
+    "https://verify.skilljar.com/c/73zy352se37m"
+  ],
+];
+---
+
+<>
+  {
+    socialLinks.map((socialLink) => (
+      <Seccion
+        title={socialLink[0]}
+        subTitle={socialLink[1]}
+      />
+    ))
+  }
+</>
