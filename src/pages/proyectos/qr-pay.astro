@@ -1,0 +1,601 @@
+---
+const title = 'QR Pay — Genera códigos QR para Transfermóvil y EnZona';
+const description =
+  'App gratuita para Android: guarda tus tarjetas, genera un QR de pago y compártelo. Compatible con Transfermóvil y EnZona, CUP y MLC.';
+const image = '/proyectos/qr-pay/detalle-qr.jpg';
+const site = 'https://renierricardo.dev';
+const email = 'aprezcuba24@gmail.com';
+const phone = '53024637';
+const whatsapp = `https://wa.me/53${phone}`;
+const mailto = `mailto:${email}?subject=${encodeURIComponent('Interés en QR Pay')}`;
+const apklis = 'https://www.apklis.cu/application/com.qrpay.app';
+const telegram = 'https://t.me/CULabsSoftware';
+
+const features = [
+  {
+    title: 'Transfermóvil y EnZona',
+    text: 'Genera QR compatibles con las dos plataformas de pago más usadas en Cuba.',
+    icon: 'qr',
+  },
+  {
+    title: 'Varias tarjetas',
+    text: 'Guarda todas las que necesites, en CUP o MLC, y elige cuál mostrar al momento de cobrar.',
+    icon: 'cards',
+  },
+  {
+    title: 'Comparte en un toque',
+    text: 'Envía tu QR por WhatsApp, Telegram o cualquier app. El cliente escanea y paga.',
+    icon: 'share',
+  },
+  {
+    title: 'Historial de pagos',
+    text: 'Anota lo que te han transferido y lleva un control simple de tus cobros.',
+    icon: 'history',
+  },
+  {
+    title: 'Datos en tu teléfono',
+    text: 'Tus tarjetas se guardan solo en el dispositivo. No subimos tu información a servidores externos.',
+    icon: 'lock',
+  },
+  {
+    title: '100 % gratis',
+    text: 'Sin suscripciones ni anuncios intrusivos. Descárgala y empieza a cobrar.',
+    icon: 'free',
+  },
+];
+
+const screens = [
+  {
+    src: '/proyectos/qr-pay/tarjetas.jpg',
+    title: 'Mis tarjetas',
+    text: 'Lista clara de tus tarjetas con moneda y plataforma.',
+  },
+  {
+    src: '/proyectos/qr-pay/nueva-tarjeta.jpg',
+    title: 'Nueva tarjeta',
+    text: 'Nombre, número, teléfono, moneda y EnZona ID opcional.',
+  },
+  {
+    src: '/proyectos/qr-pay/detalle-qr.jpg',
+    title: 'Código QR',
+    text: 'QR listo para escanear con Transfermóvil o EnZona.',
+  },
+  {
+    src: '/proyectos/qr-pay/compartir.jpg',
+    title: 'Compartir',
+    text: 'Envía la imagen del QR por WhatsApp, Telegram y más.',
+  },
+  {
+    src: '/proyectos/qr-pay/acciones.jpg',
+    title: 'Editar o eliminar',
+    text: 'Gestiona tus tarjetas cuando cambien tus datos.',
+  },
+  {
+    src: '/proyectos/qr-pay/contacto.jpg',
+    title: 'Contacto',
+    text: 'Email, teléfono, Telegram y WhatsApp del desarrollador.',
+  },
+];
+
+const audience = [
+  {
+    title: 'Negocios pequeños',
+    text: 'Cobra en el mostrador o a domicilio sin dictar 16 dígitos cada vez.',
+  },
+  {
+    title: 'Vendedores por redes',
+    text: 'Comparte el QR en WhatsApp o Facebook y cierra la venta al instante.',
+  },
+  {
+    title: 'Freelancers',
+    text: 'Servicios, reparaciones, clases: un QR y el cliente te paga.',
+  },
+  {
+    title: 'Cualquiera que cobre',
+    text: 'Si recibes transferencias, QR Pay te ahorra tiempo y errores.',
+  },
+];
+
+const faqs = [
+  {
+    q: '¿Es gratis?',
+    a: 'Sí. QR Pay es completamente gratuita. No hay planes de pago ni cargos ocultos.',
+  },
+  {
+    q: '¿Dónde se guardan mis datos?',
+    a: 'En tu teléfono. Las tarjetas y el historial se almacenan localmente; no se envían a un servidor de cuentas.',
+  },
+  {
+    q: '¿Funciona con CUP y MLC?',
+    a: 'Sí. Al crear una tarjeta eliges la moneda: CUP (peso cubano) o MLC.',
+  },
+  {
+    q: '¿Necesito internet para mostrar el QR?',
+    a: 'No. Una vez guardada la tarjeta, el QR se genera en el dispositivo. Internet solo hace falta para descargar la app o compartir por apps online.',
+  },
+  {
+    q: '¿Cómo la descargo si no está en Google Play?',
+    a: 'Está publicada en Apklis, la tienda cubana de aplicaciones. Abre el enlace, descarga la APK e instálala en tu Android.',
+  },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${site}${image}`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`${site}/proyectos/qr-pay`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased">
+    <!-- Nav -->
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-lg">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+        <a href="/" class="text-sm text-slate-400 transition hover:text-white">← renierricardo.dev</a>
+        <div class="flex items-center gap-3">
+          <img
+            src="/proyectos/qr-pay/logo.png"
+            alt="QR Pay"
+            class="h-8 w-8 rounded-full object-cover ring-2 ring-indigo-500/50"
+          />
+          <span class="hidden text-sm font-semibold sm:inline">QR Pay</span>
+        </div>
+        <a
+          href={apklis}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full bg-indigo-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-400"
+        >
+          Descargar
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="relative overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-28">
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/45 via-slate-950 to-slate-950"
+        >
+        </div>
+        <!-- QR-like grid pattern -->
+        <div
+          class="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style="background-image: linear-gradient(rgba(129,140,248,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(129,140,248,0.5) 1px, transparent 1px); background-size: 28px 28px;"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute -right-32 top-20 h-96 w-96 rounded-full bg-violet-500/15 blur-3xl"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl"
+        >
+        </div>
+
+        <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p
+              class="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-300"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+              App gratuita · Android
+            </p>
+            <h1 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-[3.25rem]">
+              Cobra con un QR. Sin dictar tarjetas.
+            </h1>
+            <p class="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
+              <strong class="font-semibold text-white">QR Pay</strong> guarda tus datos de pago y genera un
+              código QR en segundos. Tus clientes escanean, pagan y listo — sin errores, sin repetir números.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href={apklis}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
+              >
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"
+                  ></path></svg
+                >
+                Descargar en Apklis
+              </a>
+              <a
+                href="#recorrido"
+                class="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Ver la app
+              </a>
+            </div>
+            <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+              <li class="flex items-center gap-2">
+                <span class="text-indigo-400">✓</span> Gratis
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-indigo-400">✓</span> Transfermóvil y EnZona
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-indigo-400">✓</span> CUP y MLC
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phone mockup -->
+          <div class="relative mx-auto w-full max-w-[280px] lg:max-w-[300px]">
+            <div
+              class="absolute -inset-8 rounded-[3rem] bg-gradient-to-br from-indigo-500/30 to-violet-600/15 blur-2xl"
+            >
+            </div>
+            <div
+              class="relative overflow-hidden rounded-[2rem] border-[6px] border-slate-800 bg-slate-900 shadow-2xl shadow-indigo-950/50 ring-1 ring-white/10"
+            >
+              <div class="absolute inset-x-0 top-0 z-10 flex justify-center pt-2">
+                <div class="h-5 w-24 rounded-full bg-slate-950"></div>
+              </div>
+              <img
+                src="/proyectos/qr-pay/detalle-qr.jpg"
+                alt="Pantalla de código QR de QR Pay"
+                class="block w-full"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cómo funciona -->
+      <section class="border-t border-white/5 bg-slate-900/40 py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Cómo funciona</h2>
+            <p class="mt-4 text-slate-300">
+              Tres pasos. Cero fricción. El cliente paga sin que tengas que dictar ni un dígito.
+            </p>
+          </div>
+
+          <div class="mt-14 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 p-6 sm:p-10">
+            <p class="mb-8 text-center text-xs font-semibold uppercase tracking-widest text-indigo-400/80">
+              Flujo de cobro
+            </p>
+            <div class="flex flex-col items-stretch gap-4 md:flex-row md:items-center md:justify-center">
+              <!-- Step 1 -->
+              <div class="flex flex-1 flex-col items-center">
+                <div
+                  class="w-full max-w-[200px] rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-800 p-5 text-center shadow-lg shadow-indigo-900/40"
+                >
+                  <div
+                    class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-lg font-extrabold text-white"
+                  >
+                    1
+                  </div>
+                  <p class="text-xs font-medium uppercase tracking-wide text-indigo-100/80">Tú</p>
+                  <p class="mt-1 text-lg font-bold text-white">Guardas la tarjeta</p>
+                </div>
+              </div>
+
+              <div class="flex justify-center px-2 md:px-3">
+                <svg class="hidden h-6 w-12 text-indigo-500 md:block" fill="none" viewBox="0 0 48 24"
+                  ><path
+                    d="M2 12h36M30 4l12 8-12 8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path></svg
+                >
+                <svg class="h-8 w-6 text-indigo-500 md:hidden" fill="none" viewBox="0 0 24 32"
+                  ><path
+                    d="M12 2v22M4 18l8 8 8-8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path></svg
+                >
+              </div>
+
+              <!-- Step 2 -->
+              <div class="flex flex-1 flex-col items-center">
+                <div
+                  class="w-full max-w-[200px] rounded-2xl border-2 border-violet-500/50 bg-slate-900 p-5 text-center shadow-lg"
+                >
+                  <div
+                    class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/20 text-lg font-extrabold text-violet-300"
+                  >
+                    2
+                  </div>
+                  <p class="text-xs font-medium uppercase tracking-wide text-slate-400">App</p>
+                  <p class="mt-1 text-lg font-bold text-violet-300">Generas el QR</p>
+                </div>
+              </div>
+
+              <div class="flex justify-center px-2 md:px-3">
+                <svg class="hidden h-6 w-12 text-sky-400 md:block" fill="none" viewBox="0 0 48 24"
+                  ><path
+                    d="M2 12h36M30 4l12 8-12 8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path></svg
+                >
+                <svg class="h-8 w-6 text-sky-400 md:hidden" fill="none" viewBox="0 0 24 32"
+                  ><path
+                    d="M12 2v22M4 18l8 8 8-8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path></svg
+                >
+              </div>
+
+              <!-- Step 3 -->
+              <div class="flex flex-1 flex-col items-center">
+                <div
+                  class="w-full max-w-[200px] rounded-2xl bg-gradient-to-br from-sky-500 to-sky-700 p-5 text-center shadow-lg shadow-sky-900/40"
+                >
+                  <div
+                    class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-lg font-extrabold text-white"
+                  >
+                    3
+                  </div>
+                  <p class="text-xs font-medium uppercase tracking-wide text-sky-100/80">Cliente</p>
+                  <p class="mt-1 text-lg font-bold text-white">Escanea y paga</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature cards -->
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {
+              features.map((f) => (
+                <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-indigo-500/30 hover:bg-white/[0.05]">
+                  <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-400">
+                    {f.icon === 'qr' && (
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14h1v3h-1zM14 20h3v1h-3zM20 20h1v1h-1z" />
+                      </svg>
+                    )}
+                    {f.icon === 'cards' && (
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                      </svg>
+                    )}
+                    {f.icon === 'share' && (
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <circle cx="18" cy="5" r="3" />
+                        <circle cx="6" cy="12" r="3" />
+                        <circle cx="18" cy="19" r="3" />
+                        <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" />
+                      </svg>
+                    )}
+                    {f.icon === 'history' && (
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path d="M12 8v4l3 3" />
+                        <circle cx="12" cy="12" r="9" />
+                      </svg>
+                    )}
+                    {f.icon === 'lock' && (
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <rect x="5" y="11" width="14" height="10" rx="2" />
+                        <path d="M8 11V8a4 4 0 018 0v3" />
+                      </svg>
+                    )}
+                    {f.icon === 'free' && (
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6z" />
+                      </svg>
+                    )}
+                  </div>
+                  <h3 class="font-semibold text-white">{f.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-slate-400">{f.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Recorrido / galería -->
+      <section id="recorrido" class="py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Recorrido por la app</h2>
+            <p class="mt-4 text-slate-300">
+              De la lista vacía al QR compartido: todo lo que ves al abrir QR Pay.
+            </p>
+          </div>
+
+          <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {
+              screens.map((s) => (
+                <figure class="group">
+                  <div class="mx-auto w-full max-w-[220px] overflow-hidden rounded-[1.5rem] border-[5px] border-slate-800 bg-slate-900 shadow-xl shadow-black/40 ring-1 ring-white/10 transition group-hover:-translate-y-1 group-hover:shadow-indigo-950/50">
+                    <img src={s.src} alt={s.title} class="block w-full" loading="lazy" />
+                  </div>
+                  <figcaption class="mt-4 text-center">
+                    <p class="font-semibold text-white">{s.title}</p>
+                    <p class="mt-1 text-sm text-slate-400">{s.text}</p>
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Para quién es -->
+      <section class="border-t border-white/5 bg-slate-900/40 py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Para quién es</h2>
+            <p class="mt-4 text-slate-300">
+              Ideal si cobras por transferencia y quieres menos fricción en cada venta.
+            </p>
+          </div>
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {
+              audience.map((p) => (
+                <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent p-6">
+                  <h3 class="font-semibold text-indigo-300">{p.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-slate-400">{p.text}</p>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- Secondary mockup -->
+          <div class="mt-16 grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <h3 class="text-2xl font-bold tracking-tight sm:text-3xl">Tus tarjetas, siempre a mano</h3>
+              <p class="mt-4 text-slate-300">
+                Añade varias cuentas, elige Transfermóvil o EnZona, y cambia de tarjeta en un toque
+                según cobre en CUP o MLC.
+              </p>
+              <ul class="mt-8 space-y-3 text-sm text-slate-300">
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 text-indigo-400">✓</span>
+                  Nombre, número, teléfono y moneda
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 text-indigo-400">✓</span>
+                  EnZona ID opcional si lo usas
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 text-indigo-400">✓</span>
+                  Edita o elimina cuando quieras
+                </li>
+              </ul>
+            </div>
+            <div class="relative mx-auto w-full max-w-[240px]">
+              <div
+                class="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-indigo-500/20 to-sky-500/10 blur-xl"
+              >
+              </div>
+              <div
+                class="relative overflow-hidden rounded-[1.75rem] border-[5px] border-slate-800 shadow-2xl ring-1 ring-white/10"
+              >
+                <img
+                  src="/proyectos/qr-pay/tarjetas.jpg"
+                  alt="Lista de tarjetas en QR Pay"
+                  class="block w-full"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-20 sm:py-24">
+        <div class="mx-auto max-w-3xl px-5">
+          <h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl">Preguntas frecuentes</h2>
+          <div class="mt-12 space-y-3">
+            {
+              faqs.map((item) => (
+                <details class="group rounded-2xl border border-white/10 bg-white/[0.03] open:border-indigo-500/30 open:bg-indigo-500/5">
+                  <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-white marker:content-none [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center justify-between gap-4">
+                      {item.q}
+                      <span class="text-indigo-400 transition group-open:rotate-45">+</span>
+                    </span>
+                  </summary>
+                  <p class="border-t border-white/5 px-5 py-4 text-sm leading-relaxed text-slate-400">
+                    {item.a}
+                  </p>
+                </details>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="pb-24">
+        <div class="mx-auto max-w-4xl px-5">
+          <div
+            class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-900 p-8 text-center shadow-2xl shadow-indigo-950/50 sm:p-14"
+          >
+            <div
+              class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10 blur-2xl"
+            >
+            </div>
+            <div
+              class="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-sky-400/20 blur-2xl"
+            >
+            </div>
+            <h2 class="relative text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Empieza a cobrar más fácil
+            </h2>
+            <p class="relative mx-auto mt-4 max-w-lg text-indigo-50/90">
+              Descarga QR Pay gratis en Apklis y genera tu primer código QR en menos de un minuto.
+            </p>
+            <div class="relative mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href={apklis}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-indigo-800 shadow-lg transition hover:bg-indigo-50"
+              >
+                Descargar gratis
+              </a>
+              <a
+                href={telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
+              >
+                Canal de Telegram
+              </a>
+              <a
+                href={mailto}
+                class="inline-flex items-center rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
+              >
+                {email}
+              </a>
+            </div>
+            <p class="relative mt-6 text-sm text-indigo-100/70">
+              ¿Dudas?
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="underline hover:text-white"
+                >WhatsApp +53 {phone}</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/5 py-8 text-center text-sm text-slate-500">
+      <p>
+        <a href="/" class="transition hover:text-slate-300">renierricardo.dev</a>
+        · QR Pay
+      </p>
+    </footer>
+
+    <style is:global>
+      html {
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>
