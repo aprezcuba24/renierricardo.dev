@@ -1,0 +1,59 @@
+---
+import SeccionTitle from './SeccionTitle.astro';
+
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+  tag?: string;
+};
+
+const projects: Project[] = [
+  {
+    title: 'Odoo Shop',
+    description:
+      'App móvil white-label de catálogo y pedidos B2B, conectada a Odoo. Tus clientes piden desde el móvil; tú operas desde el ERP.',
+    image: '/proyectos/odoo-shop/con-banner.jpg',
+    href: '/proyectos/odoo-shop',
+    tag: 'Mobile · Odoo · B2B',
+  },
+];
+---
+
+<>
+  <SeccionTitle title="Proyectos" class="mt-10" firstPartLength={3} />
+  <div class="grid gap-5 sm:grid-cols-1">
+    {
+      projects.map((project) => (
+        <a
+          href={project.href}
+          class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:shadow-md sm:flex-row"
+        >
+          <div class="aspect-square w-full shrink-0 overflow-hidden bg-gray-100 sm:w-36 sm:self-center sm:m-3 sm:rounded-lg">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-1 flex-col justify-center p-4 sm:p-5">
+            {project.tag && (
+              <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-red-500">
+                {project.tag}
+              </p>
+            )}
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-red-600">
+              {project.title}
+            </h3>
+            <p class="mt-1 text-sm leading-relaxed text-gray-600">{project.description}</p>
+            <span class="mt-3 text-sm font-semibold text-red-500 group-hover:underline">
+              Ver proyecto →
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</>
