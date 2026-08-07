@@ -1,0 +1,19 @@
+---
+import GoogleFormPage from '../../../components/forms/GoogleFormPage.astro';
+import { googleForms } from '../../../data/google-forms';
+
+const config = googleForms.brokerRegistro;
+---
+
+<GoogleFormPage
+  title={config.title}
+  description={config.description}
+  formEmbedUrl={config.formEmbedUrl}
+  backHref={config.backHref}
+  backLabel={config.backLabel}
+  theme={config.theme}
+  image={config.image}
+  pagePath="/proyectos/broker/registro"
+  whatsappHref={config.whatsappHref}
+  whatsappPhone={config.whatsappPhone}
+/>
