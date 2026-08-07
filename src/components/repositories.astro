@@ -19,14 +19,16 @@ const repositories = [
 ];
 ---
 
-<div class="text-sm">
+<div class="text-sm min-w-0">
   {
     repositories.map((repository) => (
-      <div class="mb-3">
+      <div class="mb-3 min-w-0">
         <ul>
           <li>
-            <p>{repository[0]}</p>
-            <p>👉 <a href={repository[1]}>{repository[1]}</a></p>
+            <p class="break-words">{repository[0]}</p>
+            <p class="break-all">
+              👉 <a href={repository[1]}>{repository[1]}</a>
+            </p>
           </li>
         </ul>
       </div>

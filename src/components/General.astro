@@ -4,7 +4,7 @@ import Phone from "../components/icons/phone.astro";
 ---
 
 <div class="text-center">
-  <h1 class="text-4xl mb-5">
+  <h1 class="text-2xl sm:text-4xl mb-4 sm:mb-5 leading-tight">
     Renier
     <strong>Ricardo Figueredo</strong>
   </h1>
@@ -12,23 +12,28 @@ import Phone from "../components/icons/phone.astro";
     <p class="text-red-600 mb-1">
       Desarrollador Senior Full-Stack
     </p>
-    <p class="text-gray-600 mb-1">
+    <p class="text-gray-600 mb-1 px-1">
       Edificio 8303 Apto 17 Reparto Embil, Boyeros, Habana, Cuba
     </p>
-    <p class="mb-5 text-gray-950">
-      <Phone /> (+53) 53024637 <span class="mx-3">|</span>
-      <Email /> aprezcuba24@gmail.com
+    <p class="mb-5 text-gray-950 flex flex-col items-center gap-1 sm:flex-row sm:justify-center sm:gap-0">
+      <span class="inline-flex items-center gap-1">
+        <Phone /> (+53) 53024637
+      </span>
+      <span class="hidden sm:inline mx-3">|</span>
+      <span class="inline-flex items-center gap-1 break-all">
+        <Email /> aprezcuba24@gmail.com
+      </span>
     </p>
-    <p>
+    <p class="text-left sm:text-center mb-2">
       Graduado de Ingeniero informático, con título de Oro de la Universidad “Oscar Lucero Moya” de Holguín, 2006.
       Master en informática aplicada por La Universidad de las Ciencias Informáticas, Habana, 2009.
       Profesor asistente (6 años de la Universidad de las Ciencias Informáticas)
     </p>
-    <p>
+    <p class="text-left sm:text-center mb-2">
       Desde el comienzo de mi actividad profesional he trabajado en proyectos de desarrollo de software de diferentes escalas. Incluyendo pequeñas aplicaciones o grandes sistemas de alto tráfico. He utilizado en el desarrollo, buenas prácticas y patrones de diseño. Trabajando con diferentes framework y lenguajes de programación.
     </p>
-    <p>Lenguajes de programación: PHP, Javascript y Python</p>
-    <p>Frameworks: Symfony, Laravel, Django, Express, NestJs, NextJs, Astro, Nuxt, Honojs.</p>
-    <p>Base de datos: MySQL, PostgreSQL, MongoDB, DynamoDB, SQLite, DynamoDb AWS.</p>
+    <p class="text-left sm:text-center">Lenguajes de programación: PHP, Javascript y Python</p>
+    <p class="text-left sm:text-center">Frameworks: Symfony, Laravel, Django, Express, NestJs, NextJs, Astro, Nuxt, Honojs.</p>
+    <p class="text-left sm:text-center">Base de datos: MySQL, PostgreSQL, MongoDB, DynamoDB, SQLite, DynamoDb AWS.</p>
   </div>
 </div>
