@@ -6,21 +6,25 @@ interface Props {
 const { title } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
-const liClassBase = "px-2 p-1 rounded";
+const liClassBase = "px-2 py-1 rounded";
 const liClass = `${liClassBase} bg-blue-600`;
 const active = `${liClassBase} bg-blue-800`;
 const name = "Msc. Renier Ricardo Figueredo";
 ---
 
-<div class="w-full bg-blue-500 pt-2 pb-2 flex md:justify-center text-white">
+<div class="w-full bg-blue-500 py-2 flex justify-center text-white">
   <div
-    class="w-full md:w-1/2 flex flex-col md:flex-row justify-between pl-5 pr-5 sm:pl-0"
+    class="w-full max-w-3xl flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between px-4 sm:px-5"
   >
-    <div class="flex text-1xl sm:text-2xl">
-      {title && <strong class="mr-3">{title}</strong>}
-      <h1>{name}</h1>
+    <div class="flex flex-col min-w-0 sm:flex-row sm:items-baseline sm:gap-3">
+      {
+        title && (
+          <strong class="text-sm sm:text-xl shrink-0">{title}</strong>
+        )
+      }
+      <h1 class="text-base sm:text-2xl leading-snug break-words">{name}</h1>
     </div>
-    <ul class="flex justify-end space-x-5 pt-1 text-sm">
+    <ul class="flex flex-wrap gap-2 sm:gap-3 text-sm shrink-0">
       <li class={currentPath === "" ? active : liClass}>
         <a href="/">Home</a>
       </li>

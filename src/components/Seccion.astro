@@ -10,26 +10,31 @@ interface Props {
   class?: string;
 }
 const { title, subTitle, place, date, items, class: classProps } = Astro.props;
-const baseClass = "text-sm flex justify-between mb-4";
+const baseClass =
+  "text-sm flex flex-col gap-1 sm:flex-row sm:justify-between sm:gap-4 mb-4 min-w-0";
 const className = classProps ? `${baseClass} ${classProps}` : baseClass;
 ---
 
 <div class={className}>
-  <div>
+  <div class="min-w-0 break-words">
     <Label class="mb-1" label={title} />
-    <p>{subTitle}</p>
+    <p class="break-words">{subTitle}</p>
     {
       items && (
-        <ul class="list-disc pl-3">
+        <ul class="list-disc pl-4">
           {items.map((item) => (
-            <li class="text-gray-600">{item}</li>
+            <li class="text-gray-600 break-words">{item}</li>
           ))}
         </ul>
       )
     }
   </div>
-  <div class="text-right">
-    <p class="text-red-500">{place}</p>
-    <p class="text-gray-600">{date}</p>
-  </div>
+  {
+    (place || date) && (
+      <div class="text-left sm:text-right shrink-0">
+        {place && <p class="text-red-500">{place}</p>}
+        {date && <p class="text-gray-600">{date}</p>}
+      </div>
+    )
+  }
 </div>

@@ -120,8 +120,8 @@ const skills = [
   {
     skills.map((skill) => (
       <div class="mb-3">
-        <Label class="whitespace-nowrap" label={skill[0] as string} />
-        <p>{(skill[1] as string[]).join(", ")}</p>
+        <Label label={skill[0] as string} />
+        <p class="break-words">{(skill[1] as string[]).join(", ")}</p>
       </div>
     ))
   }

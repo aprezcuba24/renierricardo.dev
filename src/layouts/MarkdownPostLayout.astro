@@ -11,11 +11,11 @@ const { frontmatter } = Astro.props;
   description={frontmatter.description}
   image={frontmatter.image}
 >
-  <main class="mb-10">
-    <h1 class="text-2xl">
+  <main class="mb-10 min-w-0">
+    <h1 class="text-xl sm:text-2xl break-words">
       {frontmatter.title}
     </h1>
-    <div class="flex justify-end pb-10 text-red-500">
+    <div class="flex justify-end pb-6 sm:pb-10 text-red-500 text-sm sm:text-base">
       {formatDate(frontmatter.pubDate)}
     </div>
     <Image
@@ -24,8 +24,9 @@ const { frontmatter } = Astro.props;
       height={500}
       densities={[1.5, 2]}
       alt={frontmatter.title}
+      class="w-full h-auto"
     />
-    <article class="my-5 prose break-words max-w-xs sm:max-w-full">
+    <article class="my-5 prose prose-sm sm:prose max-w-none break-words">
       <slot />
     </article>
   </main>

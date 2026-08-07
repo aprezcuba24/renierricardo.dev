@@ -12,7 +12,7 @@ const { title, description, image } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<link
@@ -21,13 +21,27 @@ const { title, description, image } = Astro.props;
 		/>
 		<PageMetaTags title={title} description={description} image={image} />
 	</head>
-	<body>
-		<div class="flex w-full justify-center">
-			<div class="flex">
-				<div class="w-full px-5">
-					<slot />
-				</div>
+	<body class="overflow-x-hidden">
+		<div class="flex w-full justify-center px-4 sm:px-5">
+			<div class="w-full max-w-3xl min-w-0 py-6 sm:py-10">
+				<slot />
 			</div>
 		</div>
+		<style is:global>
+			html {
+				font-family: "Poppins", system-ui, sans-serif;
+			}
+
+			img,
+			video,
+			svg {
+				max-width: 100%;
+				height: auto;
+			}
+
+			a {
+				overflow-wrap: anywhere;
+			}
+		</style>
 	</body>
 </html>

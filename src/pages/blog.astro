@@ -11,11 +11,11 @@ const allPosts = transformPosts(await Astro.glob("../pages/posts/*.md"));
   title="Blog"
   description="Artículos del desarrollador Renier Ricardo Figueredo"
 >
-  <main>
+  <main class="min-w-0">
     <SeccionTitle title="Artículos" />
     {
       allPosts.map((post: any) => (
-        <a class="text-sm px-1 pt-1 mb-1" href={post.url}>
+        <a class="block text-sm pt-1 mb-1" href={post.url}>
           <div class="flex flex-col border-solid border-b-2 pb-5 border-gray-500">
             <Image
               src={post.image}
@@ -23,11 +23,11 @@ const allPosts = transformPosts(await Astro.glob("../pages/posts/*.md"));
               height={500}
               densities={[1.5, 2]}
               alt={post.title}
-              class="mb-3"
+              class="mb-3 w-full h-auto"
             />
-            <strong>{post.title}</strong>
+            <strong class="break-words">{post.title}</strong>
             <span class="text-red-500">{post.pubDate}</span>
-            <p>{post.description}</p>
+            <p class="break-words">{post.description}</p>
           </div>
         </a>
       ))

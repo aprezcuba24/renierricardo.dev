@@ -12,22 +12,22 @@ const lastPosts = transformPosts(await Astro.glob("../pages/posts/*.md")).slice(
 <SeccionTitle title="Últimos artículos" firstPartLength={4} class="mt-10" />
 {
   lastPosts.map(({ title, url, image, description, pubDate }: any) => (
-    <a href={url}>
-      <div class="text-sm w-full sm:flex mb-3">
-        <div class="sm:w-1/5 sm:mr-2">
+    <a href={url} class="block">
+      <div class="text-sm w-full flex flex-col sm:flex-row gap-2 mb-4 min-w-0">
+        <div class="w-full sm:w-1/5 shrink-0">
           <Image
             src={image}
             width={500}
             height={100}
             densities={[1.5, 2]}
             alt={title}
-            class="mb-3"
+            class="mb-1 sm:mb-0 w-full h-auto rounded"
           />
         </div>
-        <div class="sm:w-4/5 flex flex-col">
-          <strong>{title}</strong>
+        <div class="flex flex-col min-w-0">
+          <strong class="break-words">{title}</strong>
           <span class="text-red-500">{pubDate}</span>
-          <p>{description}</p>
+          <p class="break-words">{description}</p>
         </div>
       </div>
     </a>
