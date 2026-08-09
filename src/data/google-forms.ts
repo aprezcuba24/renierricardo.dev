@@ -17,18 +17,18 @@ export type GoogleFormConfig = {
 
 const brokerWhatsappPhone = '53024637';
 const brokerWhatsappHref = `https://wa.me/53${brokerWhatsappPhone}?text=${encodeURIComponent(
-  'Hola, quiero registrarme como proveedor en Broker (prelanzamiento).',
+  'Hola, me interesa VendeYa (prelanzamiento). Quiero enterarme cuando esté disponible.',
 )}`;
 
 export const googleForms = {
   brokerRegistro: {
-    title: 'Registro prelanzamiento Broker',
+    title: 'Interés en VendeYa (prelanzamiento)',
     description:
-      'Cuéntanos sobre ti y tu negocio. Los campos con asterisco son obligatorios. Te contactaremos cuando haya novedades del prelanzamiento.',
+      'VendeYa aún no está a la venta: estamos captando futuros clientes interesados. Cuéntanos sobre ti y tu negocio; te contactaremos cuando haya novedades del lanzamiento.',
     // Pegar aquí la URL de incrustar de Google Forms (.../viewform?embedded=true)
     formEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfWpl0cj9rPYozcoPnUUF2A_lmArgpdWCm0FFxws4L1XmhJng/viewform?embedded=true',
     backHref: '/proyectos/broker',
-    backLabel: 'Broker',
+    backLabel: 'VendeYa',
     theme: 'broker',
     image: '/proyectos/broker/01-backoffice-dashboard.png',
     whatsappHref: brokerWhatsappHref,

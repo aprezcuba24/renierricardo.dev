@@ -1,13 +1,14 @@
 ---
-const title = 'Broker — Del grupo de WhatsApp a un negocio automatizado';
+const productName = 'VendeYa';
+const title = 'VendeYa — Prelanzamiento: del grupo de WhatsApp a un negocio automatizado';
 const description =
-  'Broker conecta proveedores, gestores de venta y compradores: catálogo vivo, órdenes registradas y comisiones calculadas solas. Con API y webhooks para automatizar todo.';
+  'VendeYa está en prelanzamiento. Déjanos tu interés si quieres ser de los primeros clientes: conectamos proveedores, gestores de venta y compradores con catálogo vivo, órdenes y comisiones automatizadas.';
 const image = '/proyectos/broker/01-backoffice-dashboard.png';
 const site = 'https://renierricardo.dev';
 const email = 'aprezcuba24@gmail.com';
 const phone = '53024637';
-const whatsapp = `https://wa.me/53${phone}?text=${encodeURIComponent('Hola, quiero registrarme como proveedor en Broker (prelanzamiento).')}`;
-const mailto = `mailto:${email}?subject=${encodeURIComponent('Registro prelanzamiento Broker')}&body=${encodeURIComponent('Nombre:\nEmpresa:\nEmail:\nTeléfono (opcional):\n')}`;
+const whatsapp = `https://wa.me/53${phone}?text=${encodeURIComponent('Hola, me interesa VendeYa (prelanzamiento). Quiero enterarme cuando esté disponible.')}`;
+const mailto = `mailto:${email}?subject=${encodeURIComponent('Interés en VendeYa (prelanzamiento)')}&body=${encodeURIComponent('Nombre:\nEmpresa:\nEmail:\nTeléfono (opcional):\n\nMe interesa VendeYa y quiero enterarme del lanzamiento.\n')}`;
 const registerHref = '/proyectos/broker/registro';
 
 // ── Cómo funciona hoy (proceso manual) ──────────────────────────────
@@ -44,7 +45,7 @@ const todaySteps = [
   },
 ];
 
-// ── Con Broker (flujo automatizado) ─────────────────────────────────
+// ── Con VendeYa (flujo automatizado) ────────────────────────────────
 const brokerFlow = [
   { title: 'Publicas tu catálogo', text: 'Una sola vez, siempre al día.' },
   { title: 'Los gestores lo promocionan', text: 'Donde quieran: redes, sitios, canales.' },
@@ -138,8 +139,8 @@ const sellerBenefits = [
     icon: 'realtime',
   },
   {
-    title: 'Tu sitio con Broker de backend',
-    text: 'Monta tu web y saca los productos directamente de Broker.',
+    title: 'Tu sitio con VendeYa de backend',
+    text: 'Monta tu web y saca los productos directamente de VendeYa.',
     icon: 'website',
   },
   {
@@ -209,14 +210,14 @@ const sellerScreens = [
       <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
         <a href="/" class="text-sm text-slate-500 transition hover:text-white">← renierricardo.dev</a>
         <div class="flex items-center gap-2.5">
-          <span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald-400/15 font-display text-base font-extrabold text-emerald-300 ring-1 ring-emerald-400/40">B</span>
-          <span class="hidden font-display text-sm font-bold tracking-wide text-white sm:inline">Broker</span>
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald-400/15 font-display text-base font-extrabold text-emerald-300 ring-1 ring-emerald-400/40">V</span>
+          <span class="hidden font-display text-sm font-bold tracking-wide text-white sm:inline">VendeYa</span>
         </div>
         <a
           href={registerHref}
           class="rounded-full bg-emerald-400 px-4 py-2 text-sm font-bold text-emerald-950 transition hover:bg-emerald-300"
         >
-          Quiero registrarme
+          Me interesa
         </a>
       </div>
     </header>
@@ -235,22 +236,26 @@ const sellerScreens = [
           <div class="mx-auto max-w-3xl text-center">
             <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/[0.08] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-300 animate-rise">
               <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"></span>
-              Prelanzamiento para proveedores
+              Prelanzamiento · lista de interesados
             </p>
             <h1 class="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.25rem] animate-rise">
-              Del grupo de WhatsApp<br />
-              <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent">a un negocio automatizado</span>
+              <span class="block text-white">{productName}</span>
+              <span class="mt-2 block text-[0.72em] font-bold tracking-tight sm:mt-3">
+                Del grupo de WhatsApp<br />
+                <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent">a un negocio automatizado</span>
+              </span>
             </h1>
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 sm:text-xl animate-rise-2">
-              Ya vendes con gestores de venta. Broker registra cada venta, calcula las comisiones y
-              mantiene tu catálogo al día. <strong class="font-semibold text-slate-200">Tú solo entregas y cobras.</strong>
+              {productName} conectará proveedores, gestores de venta y compradores: catálogo al día,
+              ventas registradas y comisiones calculadas solas.
+              <strong class="font-semibold text-slate-200"> Estamos en prelanzamiento: deja tus datos si te interesa ser de los primeros en usarla.</strong>
             </p>
             <div class="mt-10 flex flex-wrap justify-center gap-3 animate-rise-3">
               <a
                 href={registerHref}
                 class="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-7 py-3.5 text-sm font-bold text-emerald-950 shadow-[0_8px_32px_-8px_rgba(16,185,129,0.5)] transition hover:bg-emerald-300 hover:shadow-[0_8px_36px_-6px_rgba(16,185,129,0.6)]"
               >
-                Quiero registrarme
+                Quiero enterarme
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12" /></svg>
               </a>
               <a
@@ -270,9 +275,9 @@ const sellerScreens = [
                 <span class="h-2.5 w-2.5 rounded-full bg-red-400/70"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-amber-400/70"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/70"></span>
-                <span class="ml-3 truncate rounded-md bg-white/5 px-3 py-1 text-[11px] text-slate-500">app.broker · panel del proveedor</span>
+                <span class="ml-3 truncate rounded-md bg-white/5 px-3 py-1 text-[11px] text-slate-500">vendeya · panel del proveedor</span>
               </div>
-              <img src="/proyectos/broker/01-backoffice-dashboard.png" alt="Dashboard del proveedor en Broker" class="block w-full" loading="eager" />
+              <img src="/proyectos/broker/01-backoffice-dashboard.png" alt="Vista previa del dashboard del proveedor en VendeYa" class="block w-full" loading="eager" />
             </div>
           </div>
         </div>
@@ -328,14 +333,14 @@ const sellerScreens = [
         </div>
       </section>
 
-      <!-- ═══════════ 3 · CON BROKER ═══════════ -->
-      <section id="con-broker" class="relative border-t border-white/[0.06] bg-[#080D12] py-20 sm:py-28">
+      <!-- ═══════════ 3 · CON VENDEYA ═══════════ -->
+      <section id="con-vendeya" class="relative border-t border-white/[0.06] bg-[#080D12] py-20 sm:py-28">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_40%_at_20%_0%,rgba(16,185,129,0.08),transparent_70%)]"></div>
         <div class="relative mx-auto max-w-6xl px-5">
           <div class="max-w-2xl reveal">
             <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-400">La solución</p>
             <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Con Broker
+              Con {productName}
             </h2>
             <p class="mt-4 text-lg text-slate-400">
               El mismo negocio, el mismo flujo. Pero el registro, las comisiones y el catálogo se gestionan solos.
@@ -365,7 +370,7 @@ const sellerScreens = [
             <div class="grid grid-cols-[1fr_1fr] border-b border-white/[0.08] sm:grid-cols-[160px_1fr_1fr]">
               <p class="hidden px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-600 sm:block"></p>
               <p class="px-5 py-4 text-[11px] font-bold uppercase tracking-widest text-amber-400 sm:px-6">Hoy</p>
-              <p class="px-5 py-4 text-[11px] font-bold uppercase tracking-widest text-emerald-400 sm:px-6">Con Broker</p>
+              <p class="px-5 py-4 text-[11px] font-bold uppercase tracking-widest text-emerald-400 sm:px-6">Con {productName}</p>
             </div>
             {
               comparison.map((row, i) => (
@@ -393,7 +398,7 @@ const sellerScreens = [
             <h2 class="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               Tres actores, un solo flujo
             </h2>
-            <p class="mt-4 text-lg text-slate-400">Cada uno hace lo suyo. Broker conecta todo por detrás.</p>
+            <p class="mt-4 text-lg text-slate-400">Cada uno hace lo suyo. {productName} conecta todo por detrás.</p>
           </div>
 
           <div class="mt-14 grid gap-5 md:grid-cols-3">
@@ -466,13 +471,13 @@ const sellerScreens = [
               Un ecosistema conectado
             </h2>
             <p class="mt-4 text-lg text-slate-400">
-              Broker es el centro: tu sistema por un lado, los canales de venta por el otro.
+              {productName} es el centro: tu sistema por un lado, los canales de venta por el otro.
             </p>
           </div>
 
           <!-- Diagrama de ecosistema -->
           <div class="reveal mt-14 overflow-x-auto rounded-3xl border border-white/[0.08] bg-[#070A0F] p-6 sm:p-10">
-            <svg viewBox="0 0 960 460" class="w-full min-w-[640px]" role="img" aria-label="Diagrama del ecosistema Broker: el sistema del proveedor se conecta por API y recibe webhooks; los gestores publican en sitios web y redes sociales con datos en tiempo real; las órdenes de los compradores entran a Broker.">
+            <svg viewBox="0 0 960 460" class="w-full min-w-[640px]" role="img" aria-label="Diagrama del ecosistema VendeYa: el sistema del proveedor se conecta por API y recibe webhooks; los gestores publican en sitios web y redes sociales con datos en tiempo real; las órdenes de los compradores entran a VendeYa.">
               <defs>
                 <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#059669" />
@@ -514,11 +519,11 @@ const sellerScreens = [
                 <text x="130" y="263" text-anchor="middle" fill="#94a3b8" font-family="Instrument Sans, sans-serif" font-size="12">y recibe cada venta</text>
               </g>
 
-              <!-- Hub: Broker -->
+              <!-- Hub: VendeYa -->
               <g>
                 <rect x="385" y="150" width="190" height="150" rx="24" fill="url(#hubGrad)" />
                 <rect x="385" y="150" width="190" height="150" rx="24" fill="none" stroke="#34d399" stroke-opacity="0.5" stroke-width="1.5" />
-                <text x="480" y="215" text-anchor="middle" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="30" font-weight="800">Broker</text>
+                <text x="480" y="215" text-anchor="middle" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="28" font-weight="800">VendeYa</text>
                 <text x="480" y="245" text-anchor="middle" fill="#a7f3d0" font-family="Instrument Sans, sans-serif" font-size="13">Catálogo · Órdenes · Comisiones</text>
               </g>
 
@@ -526,7 +531,7 @@ const sellerScreens = [
               <g>
                 <rect x="735" y="90" width="190" height="115" rx="18" fill="#0B0F1A" stroke="#334155" stroke-width="1.5" />
                 <text x="830" y="130" text-anchor="middle" fill="#e2e8f0" font-family="Bricolage Grotesque, sans-serif" font-size="16" font-weight="700">Sitio web del gestor</text>
-                <text x="830" y="155" text-anchor="middle" fill="#64748b" font-family="Instrument Sans, sans-serif" font-size="12">Broker como backend</text>
+                <text x="830" y="155" text-anchor="middle" fill="#64748b" font-family="Instrument Sans, sans-serif" font-size="12">VendeYa como backend</text>
                 <text x="830" y="178" text-anchor="middle" fill="#94a3b8" font-family="Instrument Sans, sans-serif" font-size="12">Stock siempre al día</text>
               </g>
 
@@ -629,9 +634,11 @@ const sellerScreens = [
         <div class="mx-auto max-w-6xl px-5">
           <div class="mx-auto max-w-2xl text-center reveal">
             <h2 class="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              El producto, hoy
+              Así se verá {productName}
             </h2>
-            <p class="mt-4 text-lg text-slate-400">Ya está funcionando. Esto es lo que verás dentro.</p>
+            <p class="mt-4 text-lg text-slate-400">
+              Vista previa del producto en desarrollo. Déjanos tu interés y te avisamos cuando esté listo.
+            </p>
           </div>
 
           <div class="mt-14 reveal">
@@ -690,15 +697,16 @@ const sellerScreens = [
           <div class="reveal rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-8 sm:p-10">
             <h2 class="font-display text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Por qué ahora</h2>
             <p class="mt-4 leading-relaxed text-slate-300">
-              Estamos en prelanzamiento. Los primeros proveedores entran con acceso anticipado
-              y ayudan a definir el producto. Cuando tú estés dentro, tus gestores te siguen.
+              {productName} está en prelanzamiento. El objetivo de esta página es captar proveedores
+              interesados en la plataforma. Si dejas tus datos, te contactamos cuando abramos el acceso
+              y tendrás prioridad como futuro cliente.
             </p>
           </div>
           <div class="reveal rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10" style="transition-delay: 100ms">
-            <h2 class="font-display text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Modelo flexible</h2>
+            <h2 class="font-display text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Sin compromiso</h2>
             <p class="mt-4 leading-relaxed text-slate-300">
-              Comisión por venta u otras opciones según contratación. Lo conversamos contigo
-              durante el prelanzamiento.
+              Registrarte ahora solo expresa interés. No hay pago ni contrato: queremos conocer
+              a quién le encaja el producto y avisarles primero al lanzar.
             </p>
           </div>
         </div>
@@ -716,17 +724,18 @@ const sellerScreens = [
             >
             </div>
             <h2 class="relative font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Deja la libreta.<br />Quédate con el negocio.
+              ¿Te interesa {productName}?
             </h2>
             <p class="relative mx-auto mt-5 max-w-lg text-lg text-emerald-50/90">
-              Regístrate como proveedor en el prelanzamiento y entra antes que nadie.
+              Estamos en prelanzamiento. Déjanos tus datos y te avisamos cuando la plataforma esté lista
+              para los primeros clientes.
             </p>
             <div class="relative mt-9 flex flex-wrap justify-center gap-3">
               <a
                 href={registerHref}
                 class="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-emerald-900 shadow-lg transition hover:bg-emerald-50"
               >
-                Quiero registrarme
+                Quiero enterarme
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12" /></svg>
               </a>
               <a
@@ -755,7 +764,7 @@ const sellerScreens = [
     <footer class="border-t border-white/[0.06] py-8 text-center text-sm text-slate-600">
       <p>
         <a href="/" class="transition hover:text-slate-400">renierricardo.dev</a>
-        · Broker
+        · {productName} · Prelanzamiento
       </p>
     </footer>
 
