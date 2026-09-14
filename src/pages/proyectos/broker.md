@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Vendelo360 — Arquitectura de una plataforma B2B API-first"
 pubDate: "Sun Sep 14 2026"
-image: "/proyectos/broker/01-backoffice-dashboard.png"
+image: "/media/proyectos/broker/01-backoffice-dashboard.png"
 username: "aprezcuba24"
 categories: ["proyecto"]
 description: "Caso de estudio técnico: cómo se diseñó y desplegó Vendelo360, una plataforma B2B API-first que conecta proveedores con gestores de venta mediante un backend headless, portales web e integraciones."

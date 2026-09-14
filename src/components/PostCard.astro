@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	title: string;
+	url: string;
+	image: any;
+	description: string;
+	pubDate: string;
+}
+
+const { title, url, image, description, pubDate } = Astro.props;
+
+const imageSrc =
+	typeof image === "string" && image.startsWith("//")
+		? `https:${image}`
+		: image;
+const isLocal =
+	typeof imageSrc === "string" && imageSrc.startsWith("/");
+---
+
+<a
+	href={url}
+	class="group flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 transition hover:-translate-y-0.5 hover:border-amber-400/40"
+>
+	<div class="aspect-[16/9] w-full overflow-hidden bg-zinc-800">
+		{
+			isLocal ? (
+				<img
+					src={imageSrc}
+					alt={title}
+					class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+					loading="lazy"
+				/>
+			) : (
+				<Image
+					src={imageSrc}
+					width={800}
+					height={450}
+					densities={[1.5, 2]}
+					alt={title}
+					class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+				/>
+			)
+		}
+	</div>
+	<div class="flex flex-1 flex-col p-5 min-w-0">
+		<span class="text-xs font-medium uppercase tracking-wide text-amber-400">
+			{pubDate}
+		</span>
+		<strong class="mt-2 text-base font-semibold text-zinc-100 group-hover:text-amber-400 break-words">
+			{title}
+		</strong>
+		<p class="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-400 break-words">
+			{description}
+		</p>
+	</div>
+</a>

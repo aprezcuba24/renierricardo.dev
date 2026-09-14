@@ -1,8 +1,22 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import CvWrapper from "../components/CvWrapper.astro";
-import LayoutCv from "../layouts/LayoutCv.astro";
 ---
 
-<LayoutCv description="Curriculum vitae del desarrollador Renier Ricardo Figueredo">
-  <CvWrapper/>
-</LayoutCv>
+<Layout
+  title="CV"
+  description="Curriculum vitae del desarrollador Renier Ricardo Figueredo"
+  narrow
+>
+  <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between no-print">
+    <p class="text-sm text-zinc-400">Curriculum vitae completo</p>
+    <button
+      type="button"
+      class="inline-flex items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm font-medium text-zinc-200 transition hover:border-amber-400/40 hover:text-amber-400"
+      onclick="window.print()"
+    >
+      Imprimir / PDF
+    </button>
+  </div>
+  <CvWrapper />
+</Layout>

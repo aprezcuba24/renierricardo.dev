@@ -1,23 +1,24 @@
 ---
 interface Props {
-  title: string;
-  class?: string;
-  firstPartLength?: number;
+	title: string;
+	class?: string;
+	id?: string;
+	eyebrow?: string;
 }
 
-const { title, class: classProps, firstPartLength = 3 } = Astro.props;
-const parts = title.split("");
-const fristPart = parts.slice(0, firstPartLength).join("");
-const secondPart = parts.slice(firstPartLength).join("");
-const baseClass = "w-full flex items-end gap-1 mb-2 min-w-0";
-const className = classProps ? `${classProps} ${baseClass}` : baseClass;
+const { title, class: classProps, id, eyebrow } = Astro.props;
 ---
 
-<div class={className}>
-  <h2 class="text-xl sm:text-2xl font-bold shrink-0">
-    <span class="text-red-500">{fristPart}</span>{secondPart}
-  </h2>
-  <div class="flex-1 min-w-0 pb-1.5">
-    <div class="w-full border-solid border-b-2 border-black"></div>
-  </div>
+<div class:list={["min-w-0", classProps ?? "mb-6"]} id={id}>
+	{
+		eyebrow && (
+			<p class="mb-2 text-xs font-semibold uppercase tracking-widest text-amber-400">
+				{eyebrow}
+			</p>
+		)
+	}
+	<h2 class="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
+		{title}
+	</h2>
+	<div class="mt-3 h-px w-12 bg-amber-400/80" aria-hidden="true"></div>
 </div>

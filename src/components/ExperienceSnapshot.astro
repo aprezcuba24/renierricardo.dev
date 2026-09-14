@@ -1,0 +1,54 @@
+---
+import SeccionTitle from "./SeccionTitle.astro";
+
+const recent = [
+	{
+		title: "Dofleini",
+		role: "Senior FullStack · Python / Node / React / Next",
+		place: "Habana, Cuba",
+		date: "2025",
+	},
+	{
+		title: "Dopple",
+		role: "Senior Backend · Python / Django",
+		place: "Habana, Cuba",
+		date: "2022",
+	},
+	{
+		title: "Lift22",
+		role: "Senior FullStack · JavaScript / Node / Python",
+		place: "Habana, Cuba",
+		date: "2020",
+	},
+];
+---
+
+<section class="mt-16 sm:mt-20">
+	<SeccionTitle title="Experiencia reciente" eyebrow="Carrera" />
+	<ul class="space-y-3">
+		{
+			recent.map((item) => (
+				<li class="rounded-2xl border border-zinc-800 bg-zinc-900/40 px-5 py-4">
+					<div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+						<div class="min-w-0">
+							<h3 class="font-semibold text-zinc-100">{item.title}</h3>
+							<p class="mt-1 text-sm text-zinc-400 break-words">{item.role}</p>
+						</div>
+						<div class="shrink-0 text-left sm:text-right">
+							<p class="text-sm text-amber-400">{item.place}</p>
+							<p class="text-sm text-zinc-500">{item.date}</p>
+						</div>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+	<p class="mt-5">
+		<a
+			href="/cv"
+			class="text-sm font-semibold text-amber-400 transition hover:text-amber-300 hover:underline"
+		>
+			Ver CV completo →
+		</a>
+	</p>
+</section>

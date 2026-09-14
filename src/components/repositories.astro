@@ -19,18 +19,21 @@ const repositories = [
 ];
 ---
 
-<div class="text-sm min-w-0">
+<div class="min-w-0 space-y-3 text-sm">
   {
     repositories.map((repository) => (
-      <div class="mb-3 min-w-0">
-        <ul>
-          <li>
-            <p class="break-words">{repository[0]}</p>
-            <p class="break-all">
-              👉 <a href={repository[1]}>{repository[1]}</a>
-            </p>
-          </li>
-        </ul>
+      <div class="rounded-xl border border-zinc-800/80 bg-zinc-900/30 px-4 py-3 min-w-0">
+        <p class="break-words text-zinc-300">{repository[0]}</p>
+        <p class="mt-2 break-all">
+          <a
+            href={repository[1]}
+            class="font-medium text-amber-400 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {repository[1]}
+          </a>
+        </p>
       </div>
     ))
   }

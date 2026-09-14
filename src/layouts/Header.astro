@@ -1,36 +1,116 @@
 ---
-interface Props {
-  title?: string;
-}
-
-const { title } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1);
-const liClassBase = "px-2 py-1 rounded";
-const liClass = `${liClassBase} bg-blue-600`;
-const active = `${liClassBase} bg-blue-800`;
-const name = "Msc. Renier Ricardo Figueredo";
+
+const links = [
+	{ href: "/", label: "Inicio", match: (p: string) => p === "/" },
+	{ href: "/#proyectos", label: "Proyectos", match: () => false },
+	{
+		href: "/blog",
+		label: "Blog",
+		match: (p: string) => p === "/blog" || p.startsWith("/posts/"),
+	},
+	{ href: "/cv", label: "CV", match: (p: string) => p === "/cv" || p.startsWith("/cv/") },
+];
+
+const linkBase =
+	"rounded-lg px-3 py-2 text-sm font-medium transition-colors";
+const linkIdle = `${linkBase} text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100`;
+const linkActive = `${linkBase} bg-zinc-900 text-amber-400`;
 ---
 
-<div class="w-full bg-blue-500 py-2 flex justify-center text-white">
-  <div
-    class="w-full max-w-3xl flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between px-4 sm:px-5"
-  >
-    <div class="flex flex-col min-w-0 sm:flex-row sm:items-baseline sm:gap-3">
-      {
-        title && (
-          <strong class="text-sm sm:text-xl shrink-0">{title}</strong>
-        )
-      }
-      <h1 class="text-base sm:text-2xl leading-snug break-words">{name}</h1>
-    </div>
-    <ul class="flex flex-wrap gap-2 sm:gap-3 text-sm shrink-0">
-      <li class={currentPath === "" ? active : liClass}>
-        <a href="/">Home</a>
-      </li>
-      <li class={currentPath !== "" ? active : liClass}>
-        <a href="/blog">Blog</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<header
+	class="sticky top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md no-print"
+>
+	<div
+		class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
+	>
+		<a href="/" class="group min-w-0 shrink">
+			<span class="block truncate text-sm font-semibold tracking-tight text-zinc-100 sm:text-base">
+				Renier Ricardo
+			</span>
+			<span class="hidden text-xs text-zinc-500 sm:block">Senior Full-Stack</span>
+		</a>
+
+		<nav class="hidden items-center gap-1 md:flex" aria-label="Principal">
+			{
+				links.map((link) => (
+					<a
+						href={link.href}
+						class={link.match(pathname) ? linkActive : linkIdle}
+						aria-current={link.match(pathname) ? "page" : undefined}
+					>
+						{link.label}
+					</a>
+				))
+			}
+		</nav>
+
+		<button
+			type="button"
+			id="nav-toggle"
+			class="inline-flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 p-2 text-zinc-200 md:hidden"
+			aria-expanded="false"
+			aria-controls="mobile-nav"
+			aria-label="Abrir menú"
+		>
+			<svg class="h-5 w-5" id="icon-open" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+			<svg class="hidden h-5 w-5" id="icon-close" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</div>
+
+	<nav
+		id="mobile-nav"
+		class="hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 md:hidden"
+		aria-label="Móvil"
+	>
+		<ul class="flex flex-col gap-1">
+			{
+				links.map((link) => (
+					<li>
+						<a
+							href={link.href}
+							class:list={[
+								"block rounded-lg px-3 py-2.5 text-sm font-medium",
+								link.match(pathname)
+									? "bg-zinc-900 text-amber-400"
+									: "text-zinc-300 hover:bg-zinc-900",
+							]}
+							aria-current={link.match(pathname) ? "page" : undefined}
+						>
+							{link.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
+
+<script>
+	const toggle = document.getElementById("nav-toggle");
+	const panel = document.getElementById("mobile-nav");
+	const iconOpen = document.getElementById("icon-open");
+	const iconClose = document.getElementById("icon-close");
+
+	function setOpen(open: boolean) {
+		if (!toggle || !panel || !iconOpen || !iconClose) return;
+		panel.classList.toggle("hidden", !open);
+		toggle.setAttribute("aria-expanded", String(open));
+		toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+		iconOpen.classList.toggle("hidden", open);
+		iconClose.classList.toggle("hidden", !open);
+	}
+
+	toggle?.addEventListener("click", () => {
+		const open = toggle.getAttribute("aria-expanded") !== "true";
+		setOpen(open);
+	});
+
+	panel?.querySelectorAll("a").forEach((a) => {
+		a.addEventListener("click", () => setOpen(false));
+	});
+</script>
