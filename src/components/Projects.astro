@@ -14,7 +14,7 @@ const projects: Project[] = [
     title: 'Vendelo360',
     description:
       'Caso de estudio: arquitectura de una plataforma B2B API-first. Backend headless, portales para proveedores, gestores y administración, e integraciones.',
-    image: '/proyectos/broker/01-backoffice-dashboard.png',
+    image: '/media/proyectos/broker/01-backoffice-dashboard.png',
     href: '/proyectos/broker',
     tag: 'B2B · Arquitectura · SaaS',
   },
@@ -22,7 +22,7 @@ const projects: Project[] = [
     title: 'QR Pay',
     description:
       'App gratuita para Android: guarda tus tarjetas y genera códigos QR para Transfermóvil y EnZona. CUP y MLC.',
-    image: '/proyectos/qr-pay/tarjetas.jpg',
+    image: '/media/proyectos/qr-pay/tarjetas.jpg',
     href: '/proyectos/qr-pay',
     tag: 'Mobile · Fintech · Gratis',
   },
@@ -30,23 +30,23 @@ const projects: Project[] = [
     title: 'Odoo Shop',
     description:
       'App móvil white-label de catálogo y pedidos B2B, conectada a Odoo. Tus clientes piden desde el móvil; tú operas desde el ERP.',
-    image: '/proyectos/odoo-shop/con-banner.jpg',
+    image: '/media/proyectos/odoo-shop/con-banner.jpg',
     href: '/proyectos/odoo-shop',
     tag: 'Mobile · Odoo · B2B',
   },
 ];
 ---
 
-<>
-  <SeccionTitle title="Proyectos" class="mt-10" firstPartLength={3} />
-  <div class="grid gap-5 sm:grid-cols-1">
+<section class="mt-16 sm:mt-20">
+  <SeccionTitle title="Proyectos" id="proyectos" eyebrow="Portfolio" />
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
     {
       projects.map((project) => (
         <a
           href={project.href}
-          class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:shadow-md sm:flex-row min-w-0"
+          class="group flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:shadow-amber-400/5"
         >
-          <div class="aspect-[16/10] w-full shrink-0 overflow-hidden bg-gray-100 sm:aspect-square sm:w-36 sm:self-center sm:m-3 sm:rounded-lg">
+          <div class="aspect-[16/10] w-full overflow-hidden bg-zinc-800">
             <img
               src={project.image}
               alt={project.title}
@@ -54,17 +54,19 @@ const projects: Project[] = [
               loading="lazy"
             />
           </div>
-          <div class="flex flex-1 flex-col justify-center p-4 sm:p-5 min-w-0">
+          <div class="flex flex-1 flex-col p-5 min-w-0">
             {project.tag && (
-              <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-red-500 break-words">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-amber-400 break-words">
                 {project.tag}
               </p>
             )}
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-red-600">
+            <h3 class="text-lg font-bold text-zinc-50 group-hover:text-amber-400">
               {project.title}
             </h3>
-            <p class="mt-1 text-sm leading-relaxed text-gray-600 break-words">{project.description}</p>
-            <span class="mt-3 text-sm font-semibold text-red-500 group-hover:underline">
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-zinc-400 break-words">
+              {project.description}
+            </p>
+            <span class="mt-4 text-sm font-semibold text-amber-400 group-hover:underline">
               Ver proyecto →
             </span>
           </div>
@@ -72,4 +74,4 @@ const projects: Project[] = [
       ))
     }
   </div>
-</>
+</section>

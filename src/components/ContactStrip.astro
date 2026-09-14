@@ -1,0 +1,52 @@
+---
+import SeccionTitle from "./SeccionTitle.astro";
+
+const contacts = [
+	{
+		label: "Email",
+		value: "aprezcuba24@gmail.com",
+		href: "mailto:aprezcuba24@gmail.com",
+	},
+	{
+		label: "GitHub",
+		value: "aprezcuba24",
+		href: "https://github.com/aprezcuba24",
+	},
+	{
+		label: "LinkedIn",
+		value: "Renier Ricardo Figueredo",
+		href: "https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/",
+	},
+];
+---
+
+<section class="mt-16 sm:mt-20" id="contacto">
+	<SeccionTitle title="Contacto" eyebrow="Hablemos" />
+	<div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8">
+		<p class="max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+			¿Tienes un proyecto, una integración o una idea de producto? Escríbeme y
+			conversamos.
+		</p>
+		<ul class="mt-6 grid gap-4 sm:grid-cols-3">
+			{
+				contacts.map((item) => (
+					<li>
+						<a
+							href={item.href}
+							class="block rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 transition hover:border-amber-400/40"
+							target={item.href.startsWith("http") ? "_blank" : undefined}
+							rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+						>
+							<p class="text-xs font-semibold uppercase tracking-widest text-amber-400">
+								{item.label}
+							</p>
+							<p class="mt-2 text-sm font-medium text-zinc-200 break-all">
+								{item.value}
+							</p>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

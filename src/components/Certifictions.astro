@@ -1,21 +1,24 @@
 ---
-import Seccion from "./Seccion.astro";
-
 const socialLinks = [
-  [
-    "Claude Code in Action",
-    "https://verify.skilljar.com/c/73zy352se37m"
-  ],
+  {
+    label: "Claude Code in Action",
+    href: "https://verify.skilljar.com/c/73zy352se37m",
+  },
 ];
 ---
 
-<>
+<div class="space-y-3 text-sm">
   {
-    socialLinks.map((socialLink) => (
-      <Seccion
-        title={socialLink[0]}
-        subTitle={socialLink[1]}
-      />
+    socialLinks.map((item) => (
+      <a
+        href={item.href}
+        class="flex flex-col gap-1 rounded-xl border border-zinc-800/80 bg-zinc-900/30 px-4 py-3 transition hover:border-amber-400/40 sm:flex-row sm:items-center sm:justify-between"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong class="text-zinc-100">{item.label}</strong>
+        <span class="break-all text-amber-400">Ver certificado</span>
+      </a>
     ))
   }
-</>
+</div>

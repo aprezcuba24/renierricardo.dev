@@ -1,0 +1,40 @@
+---
+import SeccionTitle from "./SeccionTitle.astro";
+
+const groups = [
+	{
+		label: "Lenguajes",
+		items: ["TypeScript", "JavaScript", "Python", "PHP", "Node.js"],
+	},
+	{
+		label: "Frameworks",
+		items: ["Next.js", "React", "NestJS", "Django", "FastAPI", "Astro", "Expo"],
+	},
+	{
+		label: "Datos y nube",
+		items: ["PostgreSQL", "MongoDB", "DynamoDB", "AWS", "Docker"],
+	},
+];
+---
+
+<section class="mt-16 sm:mt-20">
+	<SeccionTitle title="Stack" eyebrow="Tecnologías" />
+	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+		{
+			groups.map((group) => (
+				<div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5">
+					<p class="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+						{group.label}
+					</p>
+					<ul class="flex flex-wrap gap-2">
+						{group.items.map((item) => (
+							<li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 text-sm text-zinc-300">
+								{item}
+							</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
+	</div>
+</section>

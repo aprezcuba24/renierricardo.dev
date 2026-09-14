@@ -116,12 +116,12 @@ const skills = [
 ];
 ---
 
-<div class="text-sm">
+<div class="space-y-4 text-sm">
   {
     skills.map((skill) => (
-      <div class="mb-3">
+      <div class="rounded-xl border border-zinc-800/80 bg-zinc-900/30 px-4 py-3">
         <Label label={skill[0] as string} />
-        <p class="break-words">{(skill[1] as string[]).join(", ")}</p>
+        <p class="mt-1 break-words text-zinc-400">{(skill[1] as string[]).join(", ")}</p>
       </div>
     ))
   }

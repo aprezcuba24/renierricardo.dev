@@ -10,20 +10,22 @@ interface Props {
   class?: string;
 }
 const { title, subTitle, place, date, items, class: classProps } = Astro.props;
-const baseClass =
-  "text-sm flex flex-col gap-1 sm:flex-row sm:justify-between sm:gap-4 mb-4 min-w-0";
-const className = classProps ? `${baseClass} ${classProps}` : baseClass;
 ---
 
-<div class={className}>
+<div
+  class:list={[
+    "mb-4 flex min-w-0 flex-col gap-2 rounded-xl border border-zinc-800/80 bg-zinc-900/30 px-4 py-3 text-sm sm:flex-row sm:justify-between sm:gap-4",
+    classProps,
+  ]}
+>
   <div class="min-w-0 break-words">
-    <Label class="mb-1" label={title} />
-    <p class="break-words">{subTitle}</p>
+    <Label class="mb-1 text-zinc-100" label={title} />
+    <p class="text-zinc-300 break-words">{subTitle}</p>
     {
       items && (
-        <ul class="list-disc pl-4">
+        <ul class="mt-2 list-disc space-y-1 pl-4 text-zinc-400">
           {items.map((item) => (
-            <li class="text-gray-600 break-words">{item}</li>
+            <li class="break-words">{item}</li>
           ))}
         </ul>
       )
@@ -31,9 +33,9 @@ const className = classProps ? `${baseClass} ${classProps}` : baseClass;
   </div>
   {
     (place || date) && (
-      <div class="text-left sm:text-right shrink-0">
-        {place && <p class="text-red-500">{place}</p>}
-        {date && <p class="text-gray-600">{date}</p>}
+      <div class="shrink-0 text-left sm:text-right">
+        {place && <p class="text-amber-400">{place}</p>}
+        {date && <p class="text-zinc-500">{date}</p>}
       </div>
     )
   }

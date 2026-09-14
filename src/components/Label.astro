@@ -6,4 +6,6 @@ interface Props {
 const { label, class: classProps } = Astro.props;
 ---
 
-<strong style="display: block;" class={classProps}>{label}</strong>
+<strong class:list={["mb-1 block font-semibold text-zinc-100", classProps]}
+  >{label}</strong
+>

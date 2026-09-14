@@ -1,13 +1,44 @@
 ---
+const year = new Date().getFullYear();
+const social = [
+	{
+		label: "GitHub",
+		href: "https://github.com/aprezcuba24",
+	},
+	{
+		label: "LinkedIn",
+		href: "https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/",
+	},
+	{
+		label: "Email",
+		href: "mailto:aprezcuba24@gmail.com",
+	},
+];
 ---
 
-<div
-  class="w-full bg-blue-500 py-3 flex justify-center text-white items-center mt-10"
->
-  <div
-    class="w-full max-w-3xl flex flex-col gap-1 sm:flex-row sm:justify-between px-4 sm:px-5 text-sm sm:text-base"
-  >
-    <p>Msc. Renier Ricardo Figueredo</p>
-    <p>2023</p>
-  </div>
-</div>
+<footer class="mt-auto border-t border-zinc-800 bg-zinc-950 no-print">
+	<div
+		class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
+	>
+		<div class="min-w-0">
+			<p class="text-sm font-medium text-zinc-200">Msc. Renier Ricardo Figueredo</p>
+			<p class="mt-1 text-xs text-zinc-500">© {year} · Habana, Cuba</p>
+		</div>
+		<ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+			{
+				social.map((item) => (
+					<li>
+						<a
+							href={item.href}
+							class="text-zinc-400 transition-colors hover:text-amber-400"
+							target={item.href.startsWith("http") ? "_blank" : undefined}
+							rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+						>
+							{item.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</footer>

@@ -6,56 +6,94 @@ import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 const isLocalImage =
   typeof frontmatter.image === "string" && frontmatter.image.startsWith("/");
+const categories: string[] = frontmatter.categories ?? [];
+const isProject = categories.includes("proyecto");
 ---
 
 <Layout
-  title="Blog"
+  title={isProject ? "Proyecto" : "Blog"}
   description={frontmatter.description}
   image={frontmatter.image}
+  narrow
 >
-  <main class="mb-10 min-w-0">
-    <h1 class="text-xl sm:text-2xl break-words">
-      {frontmatter.title}
-    </h1>
-    <div class="flex justify-end pb-6 sm:pb-10 text-red-500 text-sm sm:text-base">
-      {formatDate(frontmatter.pubDate)}
-    </div>
+  <article class="mb-10 min-w-0">
     {
-      isLocalImage ? (
-        <img
-          src={frontmatter.image}
-          alt={frontmatter.title}
-          class="w-full h-auto"
-        />
+      isProject ? (
+        <div class="mb-6 flex flex-wrap items-center gap-3 no-print">
+          <span class="rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-400">
+            Caso de estudio
+          </span>
+          <a
+            href="/#proyectos"
+            class="text-sm font-medium text-zinc-400 transition hover:text-amber-400"
+          >
+            ← Volver a proyectos
+          </a>
+        </div>
       ) : (
-        <Image
-          src={frontmatter.image}
-          width={5000}
-          height={500}
-          densities={[1.5, 2]}
-          alt={frontmatter.title}
-          class="w-full h-auto"
-        />
+        <p class="mb-4 no-print">
+          <a
+            href="/blog"
+            class="text-sm font-medium text-zinc-400 transition hover:text-amber-400"
+          >
+            ← Blog
+          </a>
+        </p>
       )
     }
-    <article class="my-5 prose prose-sm sm:prose max-w-none break-words">
+
+    <h1 class="text-2xl font-bold tracking-tight text-zinc-50 sm:text-3xl break-words">
+      {frontmatter.title}
+    </h1>
+    <div class="mt-3 mb-8 text-sm text-amber-400 sm:text-base">
+      {formatDate(frontmatter.pubDate)}
+    </div>
+
+    {
+      frontmatter.image && (
+        <div class="mb-8 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900">
+          {isLocalImage ? (
+            <img
+              src={frontmatter.image}
+              alt={frontmatter.title}
+              class="w-full h-auto"
+            />
+          ) : (
+            <Image
+              src={frontmatter.image}
+              width={5000}
+              height={500}
+              densities={[1.5, 2]}
+              alt={frontmatter.title}
+              class="w-full h-auto"
+            />
+          )}
+        </div>
+      )
+    }
+
+    <div
+      class="prose prose-invert prose-sm sm:prose-base max-w-none break-words prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-zinc-100 prose-code:text-amber-200 prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-blockquote:border-amber-400/50"
+    >
       <slot />
-    </article>
-  </main>
+    </div>
+  </article>
 </Layout>
 
 <script>
   async function renderMermaid() {
-    const nodes = document.querySelectorAll(".mermaid");
+    const nodes = Array.from(document.querySelectorAll(".mermaid")).filter(
+      (node): node is HTMLElement => node instanceof HTMLElement,
+    );
     if (!nodes.length) return;
 
     const { default: mermaid } = await import("mermaid");
     mermaid.initialize({
       startOnLoad: false,
-      theme: "neutral",
+      theme: "dark",
       securityLevel: "loose",
     });
-    await mermaid.run({ nodes: Array.from(nodes) });
+    await mermaid.run({ nodes });
   }
 
   renderMermaid();

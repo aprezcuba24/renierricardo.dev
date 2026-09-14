@@ -1,29 +1,32 @@
 ---
-import Seccion from "./Seccion.astro";
-
 const socialLinks = [
-  [
-    "Linkedin",
-    "https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/"
-  ],
-  [
-    "Github",
-    "https://github.com/aprezcuba24"
-  ],
-  [
-    "Site",
-    "https://renierricardo.dev"
-  ]
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/renier-ricardo-figueredo-b9473536/",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/aprezcuba24",
+  },
+  {
+    label: "Sitio",
+    href: "https://renierricardo.dev",
+  },
 ];
 ---
 
-<>
+<div class="space-y-3 text-sm">
   {
-    socialLinks.map((socialLink) => (
-      <Seccion
-        title={socialLink[0]}
-        subTitle={socialLink[1]}
-      />
+    socialLinks.map((item) => (
+      <a
+        href={item.href}
+        class="flex flex-col gap-1 rounded-xl border border-zinc-800/80 bg-zinc-900/30 px-4 py-3 transition hover:border-amber-400/40 sm:flex-row sm:items-center sm:justify-between"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong class="text-zinc-100">{item.label}</strong>
+        <span class="break-all text-amber-400">{item.href}</span>
+      </a>
     ))
   }
-</>
+</div>

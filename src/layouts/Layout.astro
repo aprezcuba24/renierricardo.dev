@@ -1,47 +1,54 @@
 ---
 import Header from "./Header.astro";
-import Sidebar from "./Sidebar.astro";
-import AuthorCard from "../components/AuthorCard.astro";
 import Footer from "./Footer.astro";
 import PageMetaTags from "../components/pageMetaTags.astro";
 
-const { title, description, image } = Astro.props;
+interface Props {
+	title?: string;
+	description: string;
+	image?: string;
+	narrow?: boolean;
+}
+
+const { title, description, image, narrow = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
 		<PageMetaTags title={title} description={description} image={image} />
 	</head>
-	<body class="overflow-x-hidden">
-		<Header title={title} />
-		<div class="flex w-full justify-center px-4 sm:px-5">
-			<div class="flex w-full max-w-3xl pt-8 sm:pt-10 gap-5 min-w-0">
-				<div class="w-full min-w-0 sm:flex-1">
-					<div class="sm:hidden w-full mb-5">
-						<AuthorCard />
-					</div>
-					<slot />
-				</div>
-				<div class="hidden sm:block w-40 shrink-0">
-					<Sidebar />
-				</div>
-			</div>
-		</div>
+	<body class="min-h-screen overflow-x-hidden bg-zinc-950 font-sans text-zinc-100 antialiased">
+		<a
+			href="#contenido"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-amber-400 focus:px-3 focus:py-2 focus:text-zinc-950"
+		>
+			Saltar al contenido
+		</a>
+		<Header />
+		<main
+			id="contenido"
+			class:list={[
+				"mx-auto w-full min-w-0 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14",
+				narrow ? "max-w-article" : "max-w-6xl",
+			]}
+		>
+			<slot />
+		</main>
 		<Footer />
 		<style is:global>
 			html {
-				font-family: system-ui, sans-serif;
-				background-size: 224px;
-				font-family: "Poppins";
+				scroll-behavior: smooth;
 			}
 
 			img,
@@ -53,6 +60,47 @@ const { title, description, image } = Astro.props;
 
 			a {
 				overflow-wrap: anywhere;
+			}
+
+			:focus-visible {
+				outline: 2px solid #fbbf24;
+				outline-offset: 2px;
+			}
+
+			@media print {
+				body {
+					background: white !important;
+					color: #18181b !important;
+				}
+
+				header,
+				footer,
+				.no-print {
+					display: none !important;
+				}
+
+				main {
+					max-width: none !important;
+					padding: 0 !important;
+				}
+
+				.cv-print,
+				.cv-print * {
+					color: #18181b !important;
+					border-color: #d4d4d8 !important;
+					background: transparent !important;
+					box-shadow: none !important;
+				}
+
+				.cv-print a {
+					color: #18181b !important;
+					text-decoration: underline;
+				}
+
+				a {
+					color: inherit !important;
+					text-decoration: underline;
+				}
 			}
 		</style>
 	</body>
