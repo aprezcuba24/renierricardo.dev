@@ -4,6 +4,8 @@ import { formatDate } from "../utils";
 import { Image } from "astro:assets";
 
 const { frontmatter } = Astro.props;
+const isLocalImage =
+  typeof frontmatter.image === "string" && frontmatter.image.startsWith("/");
 ---
 
 <Layout
@@ -18,16 +20,43 @@ const { frontmatter } = Astro.props;
     <div class="flex justify-end pb-6 sm:pb-10 text-red-500 text-sm sm:text-base">
       {formatDate(frontmatter.pubDate)}
     </div>
-    <Image
-      src={frontmatter.image}
-      width={5000}
-      height={500}
-      densities={[1.5, 2]}
-      alt={frontmatter.title}
-      class="w-full h-auto"
-    />
+    {
+      isLocalImage ? (
+        <img
+          src={frontmatter.image}
+          alt={frontmatter.title}
+          class="w-full h-auto"
+        />
+      ) : (
+        <Image
+          src={frontmatter.image}
+          width={5000}
+          height={500}
+          densities={[1.5, 2]}
+          alt={frontmatter.title}
+          class="w-full h-auto"
+        />
+      )
+    }
     <article class="my-5 prose prose-sm sm:prose max-w-none break-words">
       <slot />
     </article>
   </main>
 </Layout>
+
+<script>
+  async function renderMermaid() {
+    const nodes = document.querySelectorAll(".mermaid");
+    if (!nodes.length) return;
+
+    const { default: mermaid } = await import("mermaid");
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "neutral",
+      securityLevel: "loose",
+    });
+    await mermaid.run({ nodes: Array.from(nodes) });
+  }
+
+  renderMermaid();
+</script>
